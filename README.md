@@ -27,8 +27,10 @@
 
 # Projetos
 
-- Trabalho Prático - Desenvolvimento Site Pessoal [DIW];
-- Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW]
+- Trabalho Prático 1 - Desenvolvimento Site Pessoal [DIW];
+- Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW];
+- Sprint 2 - Funcionalidade com JS [TIAW];
+- Sprint 3 - Cadastro de Entidade [TIAW]
 
 ## Projetos em desenvolvimento
 
