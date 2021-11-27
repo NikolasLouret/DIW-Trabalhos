@@ -17,7 +17,7 @@
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/ICEI-PUC-Minas-PPLES-TI/PLF-ES-2021-2-TI1-7924100-rotas-gps-1">
   </a>
 
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ICEI-PUC-Minas-PPLES-TI/PLF-ES-2021-2-TI1-7924100-rotas-gps-1">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/NikolasLouret/NikolasLouret">
 
   <a href="https://github.com/igormartins4/clone-vercel-homepage/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/ICEI-PUC-Minas-PPLES-TI/PLF-ES-2021-2-TI1-7924100-rotas-gps-1" alt="GitHub license" >
