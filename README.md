@@ -2,7 +2,7 @@
   <img alt="Projetos" title="Projetos" src="./Documentacao/svg/Logo-Klug-3-branco.svg"/>
 </h1>
 
-<p align="center">Aplicação desenvolvida para a disciplina de <strong>"Desenvolvimento de Interfaces Web"</strong>, com propósito de estudo.</p>
+<p align="center">Aplicação desenvolvida para as disciplinas do curso <strong>Eng. de Software</strong> da PUC Minas - Praça da Liberdade, com propósito de estudo.</p>
 
 <p align="center">
   <a href="https://github.com/NikolasLouret/NikolasLouret/graphs/contributors">
@@ -32,10 +32,18 @@
 
 ## Projetos em desenvolvimento
 
-- Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW]
+- Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW];
+- Sprint 4 [TIAW]
 
-## Professores responsáveis
+# Professores responsáveis
+
+## Desenvolvimento de Interfaces Web
 
 - Marcos André S. Kutova;
 - Marcos Arrais;
 - Rommel Vieira Carneiro
+
+## Trabalho Interdisciplinar: Aplicações WEB
+
+- Rommel Vieira Carneiro;
+- Roberto Felipe Dias Ferreira Da Rocha
