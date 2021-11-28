@@ -1,14 +1,20 @@
 function apiDados() {
+    //Calcula o ano
+    document.querySelector('#anoCpyright').innerHTML = new Date().getFullYear();
+
     let xhr = new XMLHttpRequest();
 
     xhr.onload = function() {
-        const data = JSON.parse(this.responseText);
-        perfil(data);
-        repositorios(data);
+        if (this.status === 200) {
+            const data = JSON.parse(this.responseText);
+            perfil(data);
+            repositorios(data);
+        } else
+            alert(`Erro código: ${this.status}`);
     }
 
     xhr.onerror = function() {
-        alert(`Erro na requisição dos dados\n Código: ${this.status} - ${this.statusText}`);
+        alert(`Erro na requisição dos dados \nCódigo: ${this.status} - ${this.statusText}`);
     }
 
     xhr.open('GET', 'https://api.github.com/users/nikolaslouret');
@@ -18,7 +24,7 @@ function apiDados() {
 function perfil(data) {
     $('#perfil').append(`<!--Imagem do perfil-->
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                        <img src="${data.avatar_url}" id="scrollspyHeading1">
+                        <img src="${data.avatar_url}" id="scrollspyHeading1" title="Foto de Perfil">
                     </div>
 
                     <!--Texto e Redes do perfil-->
@@ -26,17 +32,17 @@ function perfil(data) {
                         <!--Texto-->
                         <div class="row texto_perfil">
                             <a href="${data.html_url}" target="_blank" title="Perfil no GitHub">${data.name}</a>
-                            <p><strong class="bold">Biografia:</strong> ${data.bio}</p>
+                            <p title="Biografia">${data.bio}</p>
                         </div>
 
                         <!--Redes-->
                         <div class="row redes">
-                            <h4>Redes Sociais</h4>
+                            <h4 title="Redes Sociais">Redes Sociais</h4>
                             <div class="col-12 icones_redes">
-                                <a class="facebook" href="https://web.facebook.com/" target="_blank" title="Perfil no Facebook"><i class="fab fa-facebook-square fa-2x"></i></a>
-                                <a class="twitter" href="https://twitter.com/home" target="_blank" title="Perfil no Twitter"><i class="fab fa-twitter fa-2x"></i></a>
-                                <a class="instagram" href="https://www.instagram.com/" target="_blank" title="Perfil no Instagram"><i class="fab fa-instagram fa-2x"></i></a>
-                                <a class="gitHub" href="${data.html_url}" target="_blank" title="Perfil no GitHub"><i class="fab fa-github fa-2x"></i></a>
+                                <a class="facebook" href="https://web.facebook.com/" target="_blank" title="Perfil no Facebook"><i class="fab fa-facebook-square"></i></a>
+                                <a class="twitter" href="https://twitter.com/${data.twitter_username}" target="_blank" title="Perfil no Twitter"><i class="fab fa-twitter"></i></a>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank" title="Perfil no Instagram"><i class="fab fa-instagram"></i></a>
+                                <a class="gitHub" href="${data.html_url}" target="_blank" title="Perfil no GitHub"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>`);
@@ -56,49 +62,32 @@ async function repositorios(data) {
         return {
             name: item.name,
             description: item.description,
-            html_url: item.html_url
+            html_url: item.html_url,
+            updated_at: item.updated_at,
+            location: item.location,
+            twitter_username: item.twitter_username
         }
     });
 
-    console.log(lista);
+    $('.conteudo_repositorio').append(`<p class="tituloRepos" title="Repositórios" id="scrollspyHeading4">Repositórios GitHub</p>`);
 
-    $('.conteudo_repositorio').append(`<a href="${data.repos_url}" target="_blank" title="Repositórios" id="scrollspyHeading4">Repositórios <br class="quebra_mobile"> GitHub</a>
-                                <!--Repositório A-->
-                                <div class="col-12 col-lg-4 col-md-4 info_repositorio">
-                                    <img src="">
-                                    <a href="https://github.com/notepad-plus-plus/notepad-plus-plus" target="_blank" title="Repositórios" >Notepad++</a>
-                                    <div class="row text_repositorio">
-                                        <p><strong class="bold">Avaliação:</strong> O Notepad++ é um editor de código-fonte gratuito e um substituto do Notepad que suporta várias linguagens de programação e linguagens naturais. Rodando em ambiente MS Windows,
-                                            seu uso é regido pela Licença GPL</p>
-                                        <p><strong class="bold">Atualizado em: 29/09/2021</strong></p>
-                                    </div>
-                                </div>
+    for (var i = 0; i < lista.length; i++) {
+        $('.conteudo_repositorio').append(`<div class="col-12 col-lg-4 col-md-4 info_repositorio">
+                        <img src="img/File.png">
+                        <a href="${lista[i].html_url}" target="_blank" title="${lista[i].name}">${lista[i].name}</a>
+                        <div class="row text_repositorio">
+                            <p><strong class="bold" title="Descrição">Descrição: </strong>${lista[i].description}</p>
+                            <p><strong class="bold" title="Última Atualização">Atualizado em: ${arrumaData(lista[i].updated_at)}</strong></p>
+                        </div>
+                    </div>`);
+    }
+}
 
-                                <!--Repositório B-->
-                                <div class="col-12 col-lg-4 col-md-4 info_repositorio">
-                                    <img src="">
-                                    <a href="https://github.com/OAI/OpenAPI-Specification" target="_blank" title="Repositórios" >Especificação OpenAI</a>
-                                    <div class="row text_repositorio">
-                                        <p><strong class="bold">Avaliação:</strong> A especificação OpenAPI é uma especificação aberta dirigida pela comunidade dentro da OpenAPI Initiative, um projeto colaborativo da Linux Foundation</p>
-                                        <p><strong class="bold">Atualizado em: 27/09/2021</strong></p>
-                                    </div>
-                                </div>
+function arrumaData(data) {
+    data = data.substr(0, data.indexOf("T"));
+    var date = new Date(data);
 
-                                <!--Repositório C-->
-                                <div class="col-12 col-lg-4 col-md-4 info_repositorio">
-                                    <img src="">
-                                    <a href="https://github.com/scipy/scipy" target="_blank" title="Repositórios" >SciPy</a>
-                                    <div class="row text_repositorio">
-                                        <p><strong class="bold">Avaliação:</strong> SciPy é um software de código aberto para matemática, ciências e engenharia. Inclui módulos para estatística, otimização, integração, álgebra linear, transformadas de Fourier,
-                                            processamento de sinal e imagem, solucionadores de ODE e muito mais</p>
-                                        <p><strong class="bold">Atualizado em: 01/10/2021</strong></p>
-                                    </div>
-                                </div>
+    var dataFormatada = date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 
-                                <!--Botão Mais Repositórios-->
-                                <div class="row botao_mais">
-                                    <div class="col-12">
-                                        <button class="btn carregarMais" type="submit">+ Carregar mais Repositórios</button>
-                                    </div>
-                                </div>`);
+    return dataFormatada;
 }
