@@ -7,6 +7,7 @@ function apiDados() {
     xhr.onload = function() {
         if (this.status === 200) {
             const data = JSON.parse(this.responseText);
+            console.log(data);
             perfil(data);
             repositorios(data);
         } else
@@ -23,29 +24,43 @@ function apiDados() {
 
 function perfil(data) {
     $('#perfil').append(`<!--Imagem do perfil-->
-                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                        <img src="${data.avatar_url}" id="scrollspyHeading1" title="Foto de Perfil">
-                    </div>
+                        <img src="${data.avatar_url}" id="avatar_img" title="Foto de Perfil">
 
-                    <!--Texto e Redes do perfil-->
-                    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
-                        <!--Texto-->
-                        <div class="row texto_perfil">
-                            <a href="${data.html_url}" target="_blank" title="Perfil no GitHub">${data.name}</a>
-                            <p title="Biografia">${data.bio}</p>
-                        </div>
-
-                        <!--Redes-->
-                        <div class="row redes">
-                            <h4 title="Redes Sociais">Redes Sociais</h4>
-                            <div class="col-12 icones_redes">
-                                <a class="facebook" href="https://web.facebook.com/" target="_blank" title="Perfil no Facebook"><i class="fab fa-facebook-square"></i></a>
-                                <a class="twitter" href="https://twitter.com/${data.twitter_username}" target="_blank" title="Perfil no Twitter"><i class="fab fa-twitter"></i></a>
-                                <a class="instagram" href="https://www.instagram.com/" target="_blank" title="Perfil no Instagram"><i class="fab fa-instagram"></i></a>
-                                <a class="gitHub" href="${data.html_url}" target="_blank" title="Perfil no GitHub"><i class="fab fa-github"></i></a>
+                        <!--Texto e Redes do perfil-->
+                        <div class="infosPerfil">
+                            <!--Texto-->
+                            <div class="texto_perfil">
+                                <a href="${data.html_url}" target="_blank" title="Perfil no GitHub">${data.name}</a>
+                                <p class="bio" title="Biografia">${data.bio}</p>
                             </div>
-                        </div>
-                    </div>`);
+
+                            <div class="infos">
+                                <div class="linha-1">
+                                    <div id="location">
+                                        <span><i class="fas fa-map-marker-alt"></i> Localização</span>
+                                        : ${data.location}
+                                    </div>
+
+                                    <div id="created_at">
+                                        <span><i class="fas fa-user"></i> Entrou</span>
+                                        : ${arrumaData(data.created_at)}
+                                    </div>
+                                </div>
+
+                                <div class="linha-2">
+                                    <div id="public_repos">
+                                        <span><i class="fab fa-github"></i> Repositórios</span>
+                                        : ${data.public_repos}
+                                    </div>
+
+                                    <div id="email">
+                                        <span><i class="fas fa-envelope"></i> Email</span>
+                                        : ${data.email}
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="linkPerfil" href="${data.html_url}" target="_blank"><button id="btn-perfil" title="Acessar perfil no GitHub">Carregar perfil</button></a>
+                        </div>`);
 }
 
 async function repositorios(data) {
@@ -61,15 +76,23 @@ async function repositorios(data) {
     const lista = api_data.map(function(item) {
         return {
             name: item.name,
+            created_at: item.created_at,
+            updated_at: item.updated_at,
             description: item.description,
             html_url: item.html_url,
-            updated_at: item.updated_at,
             location: item.location,
-            twitter_username: item.twitter_username
+            twitter_username: item.twitter_username,
+            public_repos: item.public_repos,
+            email: item.email
         }
     });
 
-    $('.conteudo_repositorio').append(`<p class="tituloRepos" title="Repositórios" id="scrollspyHeading4">Repositórios GitHub</p>`);
+    $('.conteudo_repositorio').append(`<div class="content_tittleRepos">
+                                            <strong id="reposSubtittle">Pojetos</strong>
+                                            <h2 class="tituloRepos" title="Repositórios GitHub">Repositórios</h2>
+                                            <p class="textTittle">Repositórios desenvolvidos para as disciplinas do curso de Eng. de Software da PUC Minas, com propósito de estudo.</p>
+                                            <div class="lineRepos"></dv>
+                                        </div>`);
 
     for (var i = 0; i < lista.length; i++) {
         $('.conteudo_repositorio').append(`<div class="col-12 col-lg-4 col-md-4 info_repositorio">

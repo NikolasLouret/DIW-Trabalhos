@@ -7,141 +7,172 @@
 }
 
 body {
-    max-width: 100%;
-    overflow-x: hidden;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
-header {
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0px;
-    padding: 0px;
-    top: 0;
-    height: 60px;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgb(236, 233, 233) !important;
-}
-
-.bold {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
-div.modal-content h5 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-}
-
-div.modal-body p {
-    text-align: justify;
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-}
-
-div.modal-body .creditos {
-    font-size: 12px;
-}
-
-div.modal-body a {
-    color: rgb(81, 123, 202);
-    text-decoration: none;
-    font-size: 12px;
+html {
+    height: 100%;
 }
 
 
 /*Fim Tela*/
 
+a:hover {
+    color: black;
+}
+
 
 /*Perfil Mobile*/
 
-@media screen and (max-width: 750px) {
-    main .perfil {
-        margin: 0px;
-        padding: 0px 20px;
-    }
-    .perfil img {
-        width: 100%;
-    }
-    .perfil .texto_perfil h4 {
-        font-size: 30px;
+@media (max-width: 600px) {
+    .perfil {
         font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0 20px 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(231, 231, 231);
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, .3);
+    }
+    #avatar_img {
+        width: 40%;
+        border-radius: 100%;
+        margin: 50px auto 20px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+    }
+    .texto_perfil {
+        display: flex;
+        flex-direction: column;
+    }
+    .texto_perfil a {
+        font-size: 22px;
+        font-weight: 600;
         text-align: center;
-    }
-    .perfil .texto_perfil {
-        margin-top: 25px;
-        text-align: justify;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 17px;
-    }
-    .perfil .texto_perfil h4 {
-        margin-bottom: 10px;
-    }
-    .perfil .texto_perfil .bold {
-        font-family: 'Montserrat', sans-serif;
-    }
-    div.icones_redes {
-        display: inline-block;
-        text-align: center;
-    }
-    div.redes h4 {
-        text-align: center;
-        font-size: 20px;
-        font-family: 'Montserrat', sans-serif;
-        margin: 10px 0px;
-    }
-    div.redes i {
-        width: 65px;
         color: black;
+        text-decoration: none;
+        margin: 5px 0;
+    }
+    .bio {
+        font-size: 14px;
+        text-align: center;
+        color: black;
+        margin: 0 0 30px;
+    }
+    .linha-1,
+    .linha-2 {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .linha-1>div,
+    .linha-2>div {
+        margin: 5px 0;
+        display: flex;
+        justify-content: initial;
+        flex-direction: row;
+    }
+    .infos span {
+        width: 150px;
+    }
+    i.fas,
+    i.fab {
+        width: 20px;
+        font-size: 15px;
+        color: black;
+        text-align: center;
+    }
+    div.infos {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(204, 204, 204);
+    }
+    #btn-perfil {
+        background: linear-gradient( -45deg, rgba(88, 195, 255, .8) 0, rgba(0, 77, 230, .8) 40%, rgba(0, 59, 177, .8) 100%);
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        color: #FFF;
+        border: none;
+        padding: 10px 20px;
+        margin: 30px auto 0;
+        width: 100%;
     }
 }
 
 
-/*Fmi Perfil Mobile*/
+/*Fim Perfil Mobile*/
 
 
 /*Perfil Tablet*/
 
-@media screen and (min-width:751px) and (max-width:1199px) {
-    main .perfil {
-        margin: 90px 0px;
-        padding: 0px 60px;
+@media (min-width: 601px) and (max-width: 1099px) {
+    #perfil {
+        font-family: 'Montserrat', sans-serif;
+        margin: 50px auto;
+        padding: 0px;
+        width: 80%;
+        display: flex;
     }
-    .perfil img {
-        width: 130%;
+    div.infosPerfil {
+        margin-left: 30px;
     }
-    .perfil .texto_perfil h4 {
+    #avatar_img {
+        border-radius: 100%;
+        width: 25%;
+        height: 100%;
+    }
+    .perfil .texto_perfil a {
         font-size: 40px;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .perfil .texto_perfil {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        margin-left: 10%;
-    }
-    .perfil .texto_perfil h4 {
+        font-weight: 600;
         margin-top: 0px;
         margin-bottom: 5px;
-    }
-    .perfil .texto_perfil .bold {
-        font-family: 'Montserrat', sans-serif;
-    }
-    .perfil .redes {
-        margin-left: 10%;
-        margin-top: 7%;
-    }
-    .perfil .redes h4 {
-        font-size: 20px;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .perfil .redes i {
-        width: 45px;
         color: black;
+        text-decoration: none;
+    }
+    .texto_perfil {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+    .linha-1,
+    .linha-2 {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .linha-1>div,
+    .linha-2>div {
+        margin: 5px 0;
+        display: flex;
+        justify-content: initial;
+        flex-direction: row;
+        font-size: 15px;
+    }
+    .infos span {
+        width: 150px;
+    }
+    i.fas,
+    i.fab {
+        width: 20px;
+        font-size: 15px;
+        color: black;
+        text-align: center;
+    }
+    div.infos {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(218, 218, 218);
+    }
+    #btn-perfil {
+        background: linear-gradient( -45deg, rgba(88, 195, 255, .8) 0, rgba(0, 77, 230, .8) 40%, rgba(0, 59, 177, .8) 100%);
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        color: #FFF;
+        border: none;
+        padding: 10px 20px;
+        margin: 30px auto 0;
     }
 }
 
@@ -151,53 +182,87 @@ div.modal-body a {
 
 /*Perfil Desktop*/
 
-@media screen and (min-width:1200px) {
-    main .perfil {
-        margin: 20px auto 50px;
+@media (min-width: 1100px) {
+    #perfil {
+        font-family: 'Montserrat', sans-serif;
+        margin: 30px auto 50px;
         padding: 0px;
         width: 70%;
+        display: flex;
+        justify-content: center;
     }
-    .perfil img {
+    div.infosPerfil {
+        margin-left: 30px;
+    }
+    #avatar_img {
         border-radius: 100%;
-        width: 110%;
+        width: 25%;
+        height: 100%;
     }
     .perfil .texto_perfil a {
         font-size: 40px;
-        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         margin-top: 0px;
         margin-bottom: 5px;
         color: black;
         text-decoration: none;
     }
-    .perfil .texto_perfil {
+    .texto_perfil {
         font-family: 'Montserrat', sans-serif;
         font-size: 16px;
-        margin-left: 20px;
+        margin-bottom: 50px;
     }
-    .perfil .texto_perfil .bold {
-        font-family: 'Montserrat', sans-serif;
+    div.infos {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgb(218, 218, 218);
     }
-    .perfil .redes {
-        margin-left: 20px;
-        margin-top: 5%;
+    .linha-1,
+    .linha-2 {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
     }
-    .perfil .redes h4 {
-        font-size: 20px;
-        font-family: 'Montserrat', sans-serif;
+    .linha-1>div,
+    .linha-2>div {
+        display: flex;
+        justify-content: initial;
+        flex-direction: row;
+        font-size: 15px;
+        width: 250px;
     }
-    .perfil .redes i {
-        width: 45px;
+    .infos span {
+        width: 125px;
+    }
+    i.fas,
+    i.fab {
+        width: 20px;
+        font-size: 15px;
         color: black;
+        text-align: center;
+    }
+    #btn-perfil {
+        background: linear-gradient( -45deg, rgba(88, 195, 255, .8) 0, rgba(0, 77, 230, .8) 40%, rgba(0, 59, 177, .8) 100%);
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
+        color: #FFF;
+        border: none;
+        padding: 10px 20px;
+        margin: 30px 0 0;
+        transition: all 0.3s ease-in-out 0s;
+    }
+    #btn-perfil:hover {
+        background: #FFF;
+        color: rgba(0, 77, 230, .8);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, .05);
     }
 }
 
 
 /*Fim Perfil Desktop*/
-
-i.fab {
-    font-size: 25px;
-}
 
 
 /*------------------------------------------------------------------*/
@@ -205,18 +270,59 @@ i.fab {
 
 /*Repositórios GitHub*/
 
+.content_tittleRepos {
+    margin: 80px 0 70px;
+    text-align: center;
+}
+
+#reposSubtittle {
+    background-color: #1461ff;
+    color: #FFF;
+    padding: 5px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+.tituloRepos {
+    margin: 5px 0 10px;
+    padding: 0;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.textTittle {
+    margin: 0 auto;
+    max-width: 700px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #777;
+}
+
+.lineRepos {
+    display: block;
+    height: 2px;
+    width: 70px;
+    background-color: #1461ff;
+    margin: 20px auto 15px;
+}
+
 
 /*Repositórios Desktop*/
 
-@media screen and (min-width:1200px) {
+@media (min-width:1200px) {
     .repositorio {
         margin: 0 0 50px;
         padding: 0px;
-        background: rgb(236, 233, 233);
     }
     .conteudo_repositorio {
         width: 70% !important;
         margin-top: 15px;
+        background-color: #fafafa;
     }
     .tituloRepos {
         padding: 0px;
@@ -256,21 +362,15 @@ i.fab {
 
 /*Repositório Mobile*/
 
-@media screen and (max-width:1199px) {
+@media (max-width:1199px) {
     .repositorio {
         margin: 0px auto !important;
         padding: 0px;
-        background: rgb(236, 233, 233);
     }
     .conteudo_repositorio {
-        margin: 15px 0px 15px;
+        margin: 0;
         padding: 0px 30px;
         justify-content: space-between;
-    }
-    .conteudo_repositorio h4 {
-        padding: 35px 5px;
-        font-size: 30px;
-        font-family: 'Montserrat', sans-serif;
     }
     .conteudo_repositorio div>img {
         width: 10%;
@@ -282,6 +382,7 @@ i.fab {
         text-decoration: none;
         color: black;
         font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
         font-size: 20px;
     }
     .info_repositorio a:focus {
@@ -308,25 +409,34 @@ i.fab {
 
 /*Footer Desktop*/
 
-@media screen and (min-width:1001px) {
+@media (min-width: 700px) {
     .footer {
-        height: 90px;
-        padding: 40px 120px;
-        background-color: rgb(236, 233, 233);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 20px;
+        background: linear-gradient( -45deg, rgba(88, 195, 255, .8) 0, rgba(0, 77, 230, .8) 40%, rgba(0, 59, 177, .8) 100%);
+        width: 100%;
     }
-    .copyright {
-        font-family: Montserrat Light;
-        font-size: 15px;
+    .footer p {
+        text-align: center;
+        letter-spacing: .6px;
+        margin: 0;
+        color: #FFF;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
     }
-    .redes-mobile {
-        display: none;
+    .redes {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 40%;
     }
-    .footer-mobile {
-        display: none;
-    }
-    div.logo img {
-        margin-top: -5px;
+    .footer i.fab {
         width: 30px;
+        font-size: 30px;
+        color: #FFF;
+        margin: 0 20px;
     }
 }
 
@@ -334,52 +444,33 @@ i.fab {
 /*Fim Footer Desktop*/
 
 
-/*Footer Tablet*/
-
-@media screen and (min-width:780px) and (max-width:1000px) {
-    .footer {
-        height: 80px;
-        padding: 40px 20px;
-        background-color: rgb(236, 233, 233);
-    }
-    .copyright {
-        font-family: Montserrat Light;
-        font-size: 15px;
-    }
-    .redes-mobile {
-        display: none;
-    }
-    .footer-mobile {
-        display: none;
-    }
-    div.logo img {
-        margin-top: 10px;
-        width: 30%;
-    }
-}
-
-
-/*Fim Footer Tablet*/
-
-
 /*Footer Mobile*/
 
-@media screen and (max-width:779px) {
+@media (max-width: 699px) {
     .footer {
         display: flex;
-        flex-wrap: wrap;
-        padding-top: 20px !important;
-        padding: 0px 20px;
-        margin: 0px auto !important;
-        background-color: rgb(236, 233, 233);
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 15px 10px;
+        background: linear-gradient( -45deg, rgba(88, 195, 255, .8) 0, rgba(0, 77, 230, .8) 40%, rgba(0, 59, 177, .8) 100%);
+        color: #FFF;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
     }
-    .copyright {
-        font-family: Montserrat Light;
-        font-size: 15px;
+    .footer p {
         text-align: center;
+        letter-spacing: .6px;
     }
-    .logo {
-        display: none;
+    .redes {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .footer i.fab {
+        width: 30px;
+        font-size: 25px;
+        color: #FFF;
     }
 }
 

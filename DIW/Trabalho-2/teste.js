@@ -1,7 +1,7 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
 const octokit = new Octokit({
-    auth: `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`
+    auth: `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`
 });
 
 const inputPesquisar = $('#inputPesquisa');
@@ -14,11 +14,10 @@ form.on('submit',
         if (inputPesquisar.val()) {
             const reposUser = await octokit.request('GET /users/{username}/repos', {
                 username: `${inputPesquisar.val()}`,
-                accept: 'application / vnd.github.v3 + json',
+                accept: 'application/vnd.github.v3 + json',
                 per_page: 10
             })
 
-            //console.log(reposUser.data);
             repositorios(reposUser.data);
         }
     }
@@ -40,7 +39,6 @@ async function repositorios(infos) {
     });
 
     //Função que cria a lista de repositórios
-    console.log(lista);
     criarLista(lista);
 }
 

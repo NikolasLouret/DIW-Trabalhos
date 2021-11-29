@@ -24,38 +24,37 @@
 
 <body onload="apiDados()">
     <main class="main">
-        <div class="row">
-            <!--Perfil-->
-            <div class="row perfil" id="perfil"></div>
+        <!--Perfil-->
+        <div class="perfil" id="perfil"></div>
 
-            <!--Repositórios GitHub-->
-            <div class="row repositorio">
-                <div class="container conteudo_repositorio"></div>
-            </div>
+        <!--Repositórios GitHub-->
+        <div class="repositorio">
+            <div class="container conteudo_repositorio"></div>
+        </div>
 
-            <!-- Pesquisa de Código -->
-            <div class="row pesquisaRepositorio">
-                <form>
-                    <input type="text" id="inputPesquisa" title="Pesquisar Repositórios" autocomplete="off" placeholder="Pesquisar Repositórios">
-                    <button type="submit" id="btn-repos" class="btn-default">Buscar</button>
-                </form>
+        <!-- Pesquisa de Código -->
+        <div class="pesquisaRepositorio">
+            <form>
+                <input type="text" id="inputPesquisa" title="Pesquisar Repositórios" autocomplete="off" placeholder="Pesquisar Repositórios">
+                <button type="submit" id="btn-repos" class="btn-default">Buscar</button>
+            </form>
 
-                <!-- Lista de repositórios -->
-                <div class="content-list">
-                    <div class="content-list-container"></div>
-                </div>
+            <!-- Lista de repositórios -->
+            <div class="content-list">
+                <div class="content-list-container"></div>
             </div>
         </div>
     </main>
 
-    <footer class="row footer">
-        <div class="col-12 col-sm-4 col-md-11 col-lg-11 copyright">
-            <p><strong class="bold">Copyrigth&copy; <span id="anoCpyright"></span></strong> - Disciplina de Desenvolvimento de Interfaces Web - <strong class="bold">ICEI PUC Minas</strong></p>
-        </div>
-        <div class="col-12 col-sm-8 col-md-1 col-lg-1 logo">
-            <a href="#">
-                <img src="" alt="Logo">
-            </a>
+    <footer class="footer">
+        <p>Copyrigth&copy; <span id="anoCpyright"></span> - ICEI PUC Minas</p>
+
+        <!--Redes-->
+        <div class="redes">
+            <a class="facebook" href="https://web.facebook.com/" target="_blank" title="Perfil no Facebook"><i class="fab fa-facebook-square"></i></a>
+            <a class="twitter" href="" target="_blank" title="Perfil no Twitter"><i class="fab fa-twitter"></i></a>
+            <a class="instagram" href="https://www.instagram.com/" target="_blank" title="Perfil no Instagram"><i class="fab fa-instagram"></i></a>
+            <a class="gitHub" href="" target="_blank" title="Perfil no GitHub"><i class="fab fa-github"></i></a>
         </div>
     </footer>
 
