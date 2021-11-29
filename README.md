@@ -29,23 +29,13 @@
 
 - Trabalho Prático 1 - Desenvolvimento Site Pessoal [DIW];
 - Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW];
-- Sprint 2 - Funcionalidade com JS [TIAW];
-- Sprint 3 - Cadastro de Entidade [TIAW]
 
 ## Projetos em desenvolvimento
 
 - Trabalho Prático 2 - Site Pessoal integrado com API do GitHub [DIW];
-- Sprint 4 [TIAW]
 
-# Professores responsáveis
-
-## Desenvolvimento de Interfaces Web
+## Professores responsáveis
 
 - Marcos André S. Kutova;
 - Marcos Arrais;
 - Rommel Vieira Carneiro
-
-## Trabalho Interdisciplinar: Aplicações WEB
-
-- Rommel Vieira Carneiro;
-- Roberto Felipe Dias Ferreira Da Rocha
