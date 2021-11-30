@@ -7,9 +7,10 @@ function apiDados() {
     xhr.onload = function() {
         if (this.status === 200) {
             const data = JSON.parse(this.responseText);
-            console.log(data);
+            //console.log(data);
             perfil(data);
             repositorios(data);
+            linkFooter(data);
         } else
             alert(`Erro código: ${this.status}`);
     }
@@ -55,7 +56,7 @@ function perfil(data) {
 
                                     <div id="email">
                                         <span><i class="fas fa-envelope"></i> Email</span>
-                                        : ${data.email}
+                                        : nikoul.ret@gmail.com
                                     </div>
                                 </div>
                             </div>
@@ -83,27 +84,50 @@ async function repositorios(data) {
             location: item.location,
             twitter_username: item.twitter_username,
             public_repos: item.public_repos,
-            email: item.email
+            visibility: item.visibility,
+            size: item.size,
         }
     });
 
-    $('.conteudo_repositorio').append(`<div class="content_tittleRepos">
-                                            <strong id="reposSubtittle">Pojetos</strong>
-                                            <h2 class="tituloRepos" title="Repositórios GitHub">Repositórios</h2>
-                                            <p class="textTittle">Repositórios desenvolvidos para as disciplinas do curso de Eng. de Software da PUC Minas, com propósito de estudo.</p>
-                                            <div class="lineRepos"></dv>
-                                        </div>`);
-
     for (var i = 0; i < lista.length; i++) {
-        $('.conteudo_repositorio').append(`<div class="col-12 col-lg-4 col-md-4 info_repositorio">
-                        <img src="img/File.png">
-                        <a href="${lista[i].html_url}" target="_blank" title="${lista[i].name}">${lista[i].name}</a>
-                        <div class="row text_repositorio">
-                            <p><strong class="bold" title="Descrição">Descrição: </strong>${lista[i].description}</p>
-                            <p><strong class="bold" title="Última Atualização">Atualizado em: ${arrumaData(lista[i].updated_at)}</strong></p>
-                        </div>
-                    </div>`);
+        $('.info_repositorio').append(`<a href="${lista[i].html_url}" class="reposContent" title="${lista[i].name}">
+                                            <div class="reposTitle">
+                                                <h3 title="${lista[i].name}">${lista[i].name}</h3>
+                                            </div>
+                                            <div class="text_repositorio">
+                                                <p title="Descrição">${lista[i].description}</p>
+                                                <div class="reposDates">
+                                                    <span title="Data de criação"><i class="fas fa-star"></i> ${arrumaData(lista[i].created_at)}</span>
+                                                    <span title="Última Atualização"><i class="fas fa-cloud-upload-alt"></i> ${arrumaData(lista[i].updated_at)}</span>
+                                                    <span title="Tamanho do Repositório">${lista[i].size} KB</span>
+                                                </div>
+                                            </div>
+                                        </a>`);
+
+        // Criar elemento 'visibility'
+        const visibilidade = document.createElement('strong');
+
+        // Verificação para saber se o repositório é público ou privado
+        if (lista[i].visibility == 'private')
+            visibilidade.className = 'statusVisibility private';
+        else
+            visibilidade.className = 'statusVisibility public';
+
+        visibilidade.appendChild(document.createTextNode(lista[i].visibility));
+
+        const reposHeader = document.querySelectorAll('.reposTitle');
+        reposHeader[i].appendChild(visibilidade);
     }
+}
+
+function linkFooter(data) {
+    // Set the url to GitHub perfil
+    const linkGitHub = document.getElementById('gitHub');
+    linkGitHub.setAttribute('href', `${data.html_url}`);
+
+    // Set the url to Twitter perfil
+    const linkTwitter = document.getElementById('twitter');
+    linkTwitter.setAttribute('href', `https://www.twitter.com/${data.twitter_username}`);
 }
 
 function arrumaData(data) {
