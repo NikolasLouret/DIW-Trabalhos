@@ -1,7 +1,7 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
 const octokit = new Octokit({
-    auth: `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`
+    auth: `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`
 });
 
 const inputPesquisar = $('#inputPesquisa');
