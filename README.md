@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Projetos" title="Projetos" src="./Documentacao/svg/Logo-Klug-3-branco.svg"/>
+  <img alt="Projetos" title="Projetos" src="./img/logo-puc-minas.png"/>
 </h1>
 
 <p align="center">Aplicação desenvolvida para a disciplina <b>Desenvolvimento de Interfaces WEB</b> do curso <b>Eng. de Software</b> da PUC Minas - Praça da Liberdade, com propósito de estudo.</p>
