@@ -1,9 +1,3 @@
-import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
-
-const octokit = new Octokit({
-    auth: `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`
-});
-
 const inputPesquisar = $('#inputPesquisa');
 const form = $('.pesquisaRepositorio form');
 
@@ -12,13 +6,22 @@ form.on('submit',
         e.preventDefault();
 
         if (inputPesquisar.val()) {
-            const reposUser = await octokit.request('GET /users/{username}/repos', {
-                username: `${consertarCaracteres(inputPesquisar.val())}`,
-                accept: 'application/vnd.github.v3 + json',
-                per_page: 100
-            })
+            let xhrhttp = new XMLHttpRequest();
 
-            repositorios(reposUser.data);
+            xhrhttp.onload = function() {
+                if (this.status === 200) {
+                    const repos = JSON.parse(this.responseText);
+                    reposSearch(repos);
+                } else
+                    alert(`Erro código: ${this.status}`);
+            }
+
+            xhrhttp.onerror = function() {
+                alert(`Erro na requisição dos dados \nCódigo: ${this.status} - ${this.statusText}`);
+            }
+
+            xhrhttp.open('GET', `https://api.github.com/users/${consertarCaracteres(inputPesquisar.val())}/repos`);
+            xhrhttp.send();
         }
     }
 );
@@ -30,7 +33,7 @@ function consertarCaracteres(nome) {
     return name;
 }
 
-async function repositorios(infos) {
+async function reposSearch(infos) {
     const lista = infos.map(function(item) {
         return {
             name: item.name,
@@ -45,6 +48,8 @@ async function repositorios(infos) {
             perfil_link: item.owner.html_url
         }
     });
+
+    console.log(lista);
 
     //Função que cria a lista de repositórios
     criarLista(lista);
