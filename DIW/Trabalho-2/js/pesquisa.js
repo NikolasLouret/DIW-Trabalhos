@@ -49,8 +49,6 @@ async function reposSearch(infos) {
         }
     });
 
-    console.log(lista);
-
     //Função que cria a lista de repositórios
     criarLista(lista);
 }
