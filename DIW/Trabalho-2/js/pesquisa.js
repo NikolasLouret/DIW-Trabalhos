@@ -13,7 +13,7 @@ form.on('submit',
                     const repos = JSON.parse(this.responseText);
                     reposSearch(repos);
                 } else
-                    alert(`Erro código: ${this.status}`);
+                    alert(`Usuário não encontrado`);
             }
 
             xhrhttp.onerror = function() {
