@@ -219,7 +219,7 @@ a:hover {
     .linha-1,
     .linha-2 {
         display: flex;
-        justify-content: space-between;
+        justify-content: initial;
         flex-direction: row;
     }
     .linha-1>div,
@@ -228,6 +228,7 @@ a:hover {
         justify-content: initial;
         flex-direction: row;
         font-size: 15px;
+        margin-right: 50px;
         width: 325px;
     }
     .infos span {
